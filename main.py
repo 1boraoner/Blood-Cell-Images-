@@ -76,6 +76,9 @@ model.fit(X_train,Y_train_cat,validation_data=(X_test,Y_test_cat),callbacks=[ear
 
 ### evalutaion
 
+metrics = pd.DataFrame(model.history.history)
+metrics[['val','val_loss']].plot()
+
 preds = model.predict_classes(X_test)
 
 from sklearn.metrics import confusion_matrix,classification_report
